@@ -35,7 +35,7 @@ function App() {
     localStorage.setItem('fintrix-theme', theme);
   }, [theme]);
 
-  // Load search history and last analysis from local storage on mount
+  // Load search history from local storage on mount
   useEffect(() => {
     const savedHistory = localStorage.getItem('fintrix-history');
     if (savedHistory) {
@@ -45,35 +45,7 @@ function App() {
         console.error("Failed to parse history", e);
       }
     }
-
-    const savedLastAnalysis = localStorage.getItem('fintrix-last-analysis');
-    if (savedLastAnalysis) {
-      try {
-        const parsed = JSON.parse(savedLastAnalysis);
-        if (parsed.isCompare && parsed.headlineA && parsed.headlineB) {
-          setIsCompareMode(true);
-          setHeadlineA(parsed.headlineA);
-          setHeadlineB(parsed.headlineB);
-          setResultA(analyzeHeadline(parsed.headlineA));
-          setResultB(analyzeHeadline(parsed.headlineB));
-        } else if (parsed.headlineA) {
-          setHeadlineA(parsed.headlineA);
-          setResultA(analyzeHeadline(parsed.headlineA));
-        }
-      } catch (e) {
-        console.error("Failed to load last analysis", e);
-        loadDefaultAnalysis();
-      }
-    } else {
-      loadDefaultAnalysis();
-    }
   }, []);
-
-  const loadDefaultAnalysis = () => {
-    const defaultHeadline = 'Federal Reserve raises interest rates by 50bps to combat core inflation pressures';
-    setHeadlineA(defaultHeadline);
-    setResultA(analyzeHeadline(defaultHeadline));
-  };
 
   const handleThemeToggle = () => {
     setTheme(prev => prev === 'light' ? 'dark' : 'light');
