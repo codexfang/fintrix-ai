@@ -201,7 +201,7 @@ function App() {
               theme={theme} 
             />
           ) : (
-            <div className="card" style={{ padding: '3rem', textAlign: 'center', color: 'var(--text-muted)' }}>
+            <div className="card empty-state-card" style={{ padding: '3rem', textAlign: 'center', color: 'var(--text-muted)' }}>
               <HelpCircle size={48} style={{ margin: '0 auto 1rem', display: 'block', color: 'var(--border-color-hover)' }} />
               <h3>No Analysis Loaded</h3>
               <p>Type a financial headline or click a preset on the left side to compile market vectors.</p>

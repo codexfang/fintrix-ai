@@ -124,7 +124,7 @@ export const ComparisonDashboard: React.FC<ComparisonDashboardProps> = ({ result
       
       {/* 1. Comparison Summary Badges */}
       <div className="card">
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.75rem' }}>
+        <div className="flex-toolbar" style={{ marginBottom: '1.25rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.75rem' }}>
           <h2 style={{ fontSize: '1.1rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
             <ArrowLeftRight size={18} style={{ color: 'var(--accent-blue)' }} />
             <span>Differential Vector Analysis</span>
@@ -139,7 +139,7 @@ export const ComparisonDashboard: React.FC<ComparisonDashboardProps> = ({ result
           </button>
         </div>
 
-        <div className="compare-header-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+        <div className="compare-header-row">
           <div style={{ borderLeft: `3px solid ${colorA}`, paddingLeft: '0.75rem' }}>
             <div style={{ display: 'flex', gap: '0.35rem', marginBottom: '0.25rem' }}>
               <span className="impact-badge" style={{ backgroundColor: 'var(--bg-accent-blue-light)', color: colorA, fontSize: '0.65rem' }}>

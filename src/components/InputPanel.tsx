@@ -81,26 +81,27 @@ export const InputPanel: React.FC<InputPanelProps> = ({
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
       <form onSubmit={handleSubmit} className="card" style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <h2 style={{ fontSize: '1.1rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <Search size={18} className="text-secondary" style={{ color: 'var(--accent-blue)' }} />
+        <div className="panel-header-row">
+          <h2 style={{ fontSize: '1.1rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.5rem', minWidth: 0 }}>
+            <Search size={18} className="text-secondary" style={{ color: 'var(--accent-blue)', flexShrink: 0 }} />
             <span>Analysis Parameters</span>
           </h2>
-          
+
           <button
             type="button"
             onClick={() => setIsCompareMode(!isCompareMode)}
-            className="btn-secondary"
-            style={{ 
-              padding: '0.35rem 0.65rem', 
-              fontSize: '0.75rem', 
+            className="btn-secondary btn-compare-toggle"
+            style={{
+              padding: '0.35rem 0.65rem',
+              fontSize: '0.75rem',
               borderRadius: 'var(--radius-sm)',
               display: 'flex',
               alignItems: 'center',
               gap: '0.35rem',
               borderColor: isCompareMode ? 'var(--accent-blue)' : 'var(--border-color)',
               color: isCompareMode ? 'var(--accent-blue)' : 'var(--text-secondary)',
-              backgroundColor: isCompareMode ? 'var(--bg-accent-blue-light)' : 'var(--bg-card)'
+              backgroundColor: isCompareMode ? 'var(--bg-accent-blue-light)' : 'var(--bg-card)',
+              flexShrink: 0,
             }}
           >
             <ArrowLeftRight size={12} />
@@ -170,29 +171,13 @@ export const InputPanel: React.FC<InputPanelProps> = ({
         </h3>
         
         {/* Category Tabs */}
-        <div style={{ 
-          display: 'flex', 
-          overflowX: 'auto', 
-          gap: '0.25rem', 
-          paddingBottom: '0.5rem', 
-          marginBottom: '0.75rem', 
-          scrollbarWidth: 'none', 
-          borderBottom: '1px solid var(--border-color)' 
-        }} className="print-hidden">
+        <div className="preset-tabs print-hidden">
           {PRESET_CATEGORIES.map((cat) => (
             <button
               key={cat.name}
               type="button"
               onClick={() => setActiveCategory(cat.name)}
-              style={{
-                padding: '0.35rem 0.6rem',
-                fontSize: '0.75rem',
-                borderRadius: 'var(--radius-sm)',
-                whiteSpace: 'nowrap',
-                backgroundColor: activeCategory === cat.name ? 'var(--bg-accent-blue-light)' : 'transparent',
-                color: activeCategory === cat.name ? 'var(--accent-blue)' : 'var(--text-secondary)',
-                fontWeight: activeCategory === cat.name ? 600 : 500
-              }}
+              className={`preset-tab-btn${activeCategory === cat.name ? ' is-active' : ''}`}
             >
               {cat.name}
             </button>

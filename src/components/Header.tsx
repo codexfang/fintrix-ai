@@ -23,8 +23,8 @@ export const Header: React.FC<HeaderProps> = ({ theme, onThemeToggle }) => {
   }, []);
 
   return (
-    <header className="card" style={{ padding: '1rem 1.5rem', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', margin: 0 }}>
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+    <header className="card app-header">
+      <div className="app-header-brand">
         <h1 style={{ fontSize: '1.25rem', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
           FINTRIX <span style={{ color: 'var(--accent-blue)', fontWeight: 500 }}>AI</span>
         </h1>
@@ -33,31 +33,20 @@ export const Header: React.FC<HeaderProps> = ({ theme, onThemeToggle }) => {
         </p>
       </div>
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
+      <div className="app-header-actions">
         <div className="status-indicator">
           TERMINAL ACTIVE
         </div>
-        
-        <div style={{ 
-          display: 'flex', 
-          alignItems: 'center', 
-          gap: '0.5rem', 
-          fontFamily: 'var(--font-mono)', 
-          fontSize: '0.75rem', 
-          color: 'var(--text-secondary)',
-          backgroundColor: 'var(--bg-page)',
-          padding: '0.35rem 0.75rem',
-          borderRadius: 'var(--radius-sm)',
-          border: '1px solid var(--border-color)'
-        }} className="print-hidden">
-          <Activity size={12} className="text-secondary" style={{ animation: 'pulse-dot 2s infinite' }} />
+
+        <div className="app-header-clock print-hidden">
+          <Activity size={12} className="text-secondary" style={{ animation: 'pulse-dot 2s infinite', flexShrink: 0 }} />
           <span>{time}</span>
         </div>
 
-        <button 
-          onClick={onThemeToggle} 
-          className="btn-secondary" 
-          style={{ padding: '0.5rem', borderRadius: 'var(--radius-sm)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+        <button
+          onClick={onThemeToggle}
+          className="btn-secondary"
+          style={{ padding: '0.5rem', borderRadius: 'var(--radius-sm)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}
           title={theme === 'light' ? 'Switch to Dark Terminal' : 'Switch to Light Interface'}
         >
           {theme === 'light' ? <Moon size={16} /> : <Sun size={16} />}
