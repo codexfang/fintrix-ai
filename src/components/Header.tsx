@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Terminal, Sun, Moon, Activity } from 'lucide-react';
+import { Sun, Moon, Activity } from 'lucide-react';
 
 interface HeaderProps {
   theme: 'light' | 'dark';
@@ -24,27 +24,13 @@ export const Header: React.FC<HeaderProps> = ({ theme, onThemeToggle }) => {
 
   return (
     <header className="card" style={{ padding: '1rem 1.5rem', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', margin: 0 }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-        <div style={{ 
-          backgroundColor: 'var(--bg-accent-blue-light)', 
-          color: 'var(--accent-blue)', 
-          padding: '0.5rem', 
-          borderRadius: 'var(--radius-sm)',
-          border: '1px solid rgba(var(--accent-blue-rgb), 0.2)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}>
-          <Terminal size={22} />
-        </div>
-        <div>
-          <h1 style={{ fontSize: '1.25rem', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-            FINTRIX <span style={{ color: 'var(--accent-blue)', fontWeight: 500 }}>AI</span>
-          </h1>
-          <p style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.15em', fontWeight: 600, marginTop: '-2px' }}>
-            Market Impact Terminal
-          </p>
-        </div>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+        <h1 style={{ fontSize: '1.25rem', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+          FINTRIX <span style={{ color: 'var(--accent-blue)', fontWeight: 500 }}>AI</span>
+        </h1>
+        <p style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.15em', fontWeight: 600, marginTop: '-2px' }}>
+          Market Impact Terminal
+        </p>
       </div>
 
       <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
