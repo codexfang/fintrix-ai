@@ -12,13 +12,12 @@ export const Header: React.FC<HeaderProps> = ({ theme, onThemeToggle }) => {
   useEffect(() => {
     const updateTime = () => {
       const now = new Date();
-      // Format time as UTC for a professional terminal feel
-      const utcString = now.toUTCString().replace('GMT', 'UTC');
-      setTime(utcString);
+      const parts = now.toUTCString().replace('GMT', 'UTC').split(' ');
+      setTime(parts.slice(0, 4).join(' '));
     };
-    
+
     updateTime();
-    const interval = setInterval(updateTime, 1000);
+    const interval = setInterval(updateTime, 60000);
     return () => clearInterval(interval);
   }, []);
 
