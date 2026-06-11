@@ -19,7 +19,3 @@ Fintrix AI is a high-fidelity financial intelligence dashboard that analyzes fin
 - **Data Visualization**: Chart.js & `react-chartjs-2`
 - **Iconography**: Lucide React
 - **Styling**: Vanilla CSS 
-
-## License
-
-MIT
